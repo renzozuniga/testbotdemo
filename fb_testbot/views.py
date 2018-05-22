@@ -32,12 +32,12 @@ for create_table_request in create_table_request_list:
         pass
 
 # Create your views here.
-#PAGE_ACCESS_TOKEN = "EAAF22Aabsu4BAHDo3ZBfBnuUZClrVZAHZCfWu1OZCxlDVUZCOZCpkFGPbbZA0QFJc3DzgXyhvX00A1Fd30rZAM7BvFaXm8nuS78riutc5QOvuy4YLQeGSkpcZB9w71LQMgsOEkM0XCihcjUzrpMtEz6kU6oWsJGKhvZBFn2YmgiTLUKFgZDZD"
-#VERIFY_TOKEN = "5432167890"
-#API_KEY = "e66da512f0d41fb64642d7ddc47ab311"
-PAGE_ACCESS_TOKEN = os.environ['PAGE_ACCESS_TOKEN']
-VERIFY_TOKEN = os.environ['VERIFY_TOKEN']
-API_KEY = os,environ['API_KEY']
+PAGE_ACCESS_TOKEN = "EAAF22Aabsu4BAHDo3ZBfBnuUZClrVZAHZCfWu1OZCxlDVUZCOZCpkFGPbbZA0QFJc3DzgXyhvX00A1Fd30rZAM7BvFaXm8nuS78riutc5QOvuy4YLQeGSkpcZB9w71LQMgsOEkM0XCihcjUzrpMtEz6kU6oWsJGKhvZBFn2YmgiTLUKFgZDZD"
+VERIFY_TOKEN = "5432167890"
+API_KEY = "e66da512f0d41fb64642d7ddc47ab311"
+#PAGE_ACCESS_TOKEN = os.environ['PAGE_ACCESS_TOKEN']
+#VERIFY_TOKEN = os.environ['VERIFY_TOKEN']
+#API_KEY = os,environ['API_KEY']
 
 def post_facebook_message(self, fbid, recevied_message):       
 	musixmatch = Musixmatch(API_KEY)
