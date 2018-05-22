@@ -1,2 +1,0 @@
-pymessenger==0.0.7.0
-gunicorn==19.7.1
