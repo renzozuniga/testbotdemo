@@ -32,13 +32,17 @@ for create_table_request in create_table_request_list:
         pass
 
 # Create your views here.
-PAGE_ACCESS_TOKEN = "EAAF22Aabsu4BAHDo3ZBfBnuUZClrVZAHZCfWu1OZCxlDVUZCOZCpkFGPbbZA0QFJc3DzgXyhvX00A1Fd30rZAM7BvFaXm8nuS78riutc5QOvuy4YLQeGSkpcZB9w71LQMgsOEkM0XCihcjUzrpMtEz6kU6oWsJGKhvZBFn2YmgiTLUKFgZDZD"
+#PAGE_ACCESS_TOKEN = "EAAF22Aabsu4BAHDo3ZBfBnuUZClrVZAHZCfWu1OZCxlDVUZCOZCpkFGPbbZA0QFJc3DzgXyhvX00A1Fd30rZAM7BvFaXm8nuS78riutc5QOvuy4YLQeGSkpcZB9w71LQMgsOEkM0XCihcjUzrpMtEz6kU6oWsJGKhvZBFn2YmgiTLUKFgZDZD"
+#VERIFY_TOKEN = "5432167890"
+#API_KEY = "e66da512f0d41fb64642d7ddc47ab311"
+PAGE_ACCESS_TOKEN = os.environ['PAGE_ACCESS_TOKEN']
+VERIFY_TOKEN = os.environ['VERIFY_TOKEN']
+API_KEY = os,environ['API_KEY']
 
 def post_facebook_message(self, fbid, recevied_message):       
-	musixmatch = Musixmatch('e66da512f0d41fb64642d7ddc47ab311')
+	musixmatch = Musixmatch(API_KEY)
 
 	track = recevied_message.split("-")
-	pprint(len(track))
 	if(len(track) == 2):
 		result = musixmatch.matcher_track_get(track[0], track[1])
 		body = result.get('message').get('body')
@@ -71,7 +75,7 @@ def post_facebook_message(self, fbid, recevied_message):
 
 class TestBotView(generic.View, BaseMessenger):
     def get(self, request, *args, **kwargs):
-        if self.request.GET['hub.verify_token'] == '5432167890':
+        if self.request.GET['hub.verify_token'] == VERIFY_TOKEN:
             return HttpResponse(self.request.GET['hub.challenge'])
         else:
             return HttpResponse('Error, invalid token')
